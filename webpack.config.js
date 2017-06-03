@@ -1,7 +1,8 @@
-
+var webpack = require("webpack")
 var HtmlWebpackPlugin = require("html-webpack-plugin")
 var ExtractTextWebpackPlugin = require("extract-text-webpack-plugin")
 var path = require("path")
+
 
 module.exports = {
     entry: './src/App.js',
@@ -49,6 +50,9 @@ module.exports = {
         filename:'app.css',
         disable:false,
         allChunks:true
+    }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     })
     ]
     
